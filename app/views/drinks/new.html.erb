@@ -1,0 +1,9 @@
+<h1> New Drink </h1>
+
+<p><%= form_for @drink do |f| %></p>
+    <p><%= f.label :name %></p>
+    <p><%= f.text_field :name %></p>
+    <p><%= f.label :shelf %></p>
+    <p><%= f.collection_select :shelf_id, Shelf.all, :id, :name %></p>
+    <%= f.submit %>
+    <% end %>
