@@ -19,19 +19,20 @@
       </a>
   <ul class="navbar-nav">
     <li class="nav-item">
-      <a class="nav-link" href="#"><%= link_to "New Drink", new_drink_path%></a>
+      <a class="nav-link" href="#"><%= link_to "New Shelf", new_shelf_path%></a>
     </li>
     
     
   </ul>
 </nav>
 
-<h1> Welcome To The Drink Archive!</h1>
+<h1> Welcome To The Bar!</h1>
+<p><h3> Feel free to browse the shelves, make a new one, or add to an existing one!</h3></p>
 
 <ul>
-  <% @drinks.each do |drink| %>
+  <% @shelves.each do |user| %>
     <li>
-      <h3><%= link_to drink.name, drink_path(drink) %></h3>
+      <h3><%= link_to shelf.name, shelf_path(shelf) %></h3>
     </li>
     <br>
   <% end %>

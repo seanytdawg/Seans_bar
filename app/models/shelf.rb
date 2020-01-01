@@ -4,6 +4,9 @@ class Shelf < ApplicationRecord
   has_many :drink_ingredients, through: :drinks
   has_many :ingredients, through: :drink_ingredients
 
+  # validates :name, presence: true
+  # validates :name, uniqueness: true
+
 
 
 

@@ -3,6 +3,9 @@ class Drink < ApplicationRecord
   has_many :drink_ingredients
   has_many :ingredients, through: :drink_ingredients
 
+  validates :name, presence: true
+  validates :name, uniqueness: true
+
   #Search cocktail specifically by name
   def self.get_cocktail(cocktail)
     cocktail_string = RestClient.get("https://www.thecocktaildb.com/api/json/v1/1/search.php?s=#{cocktail}")
