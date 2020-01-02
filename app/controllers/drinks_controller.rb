@@ -47,13 +47,20 @@ before_action :find_drink, only: [:show, :edit, :update, :destroy]
 
 
     def search
-        
+        if params[:name]
+            @cocktail_hash = Drink.get_cocktail(params[:name])
+        end
     end 
 
     def handle_search
-        cocktail_hash = Drink.get_cocktail(params[:name])
-        drink = Drink.find_or_create_by(name: cocktail_hash["drinks"][0]["strDrink"])
-        redirect_to drink_path(drink)
+        @cocktail_hash = Drink.get_cocktail(params[:name])
+
+        if @cocktail_hash["drinks"]
+            render :results
+        else 
+            flash[:messages] = "Cocktail not found"
+            redirect_to drinks_search_path
+        end 
     end
 
 
@@ -61,13 +68,13 @@ before_action :find_drink, only: [:show, :edit, :update, :destroy]
 
 private
 
-    def find_drink
-        @drink = Drink.find(params[:id])
-    end
+def find_drink
+    @drink = Drink.find(params[:id])
+end
 
-    def user_params
-        params.require(:drink).permit(:name)
-    end
+def drink_params
+    params.require(:drink).permit(:name, :shelf_id)
+end
     
 
 end
