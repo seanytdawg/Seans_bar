@@ -3,6 +3,6 @@
 <ul>
 
 <li><h2><%= link_to @drink.name %></h2></li>
-<li><h2><%= @drink_details  %></h2></li>
+<li><h2><%= Drink.get_stats(@drink)  %></h2></li>
 
 </ul>
