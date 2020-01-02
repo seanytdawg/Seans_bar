@@ -1,0 +1,8 @@
+<h1>Select Ingredients</h1>
+<%= form_tag "/ingredients/search" do %>
+    <% Ingredient.get_ingredients_array.each do |ingredient| %>
+    <%= label_tag(ingredient)%>
+    <input type = "checkbox" name="ingredients[]" value= <%= ingredient %>>
+    <% end %>
+ <button type = "submit"> Search</button> 
+<% end %>

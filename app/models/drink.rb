@@ -14,6 +14,22 @@ class Drink < ApplicationRecord
   cocktail_hash
   end 
 
+  def self.get_cocktails_by_letter(letter)
+    cocktails_string = RestClient.get("https://www.thecocktaildb.com/api/json/v1/1/search.php?f=#{letter}")
+    cocktail_hash = JSON.parse(cocktails_string)
+    rescue
+  cocktail_hash 
+end 
+
+def self.list_all_cocktail_hashes
+  cocktail_array = []
+  alphabet = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
+  alphabet.each do |letter|
+  cocktail_array << Drink.get_cocktails_by_letter(letter)
+  end 
+  cocktail_array
+end 
+
   def self.get_stats(cocktail)
     cocktail_hash = get_cocktail(cocktail)
     puts cocktail_hash["drinks"][0]["strCategory"]

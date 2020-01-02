@@ -21,6 +21,7 @@ class DrinkIngredientsController < ApplicationController
         #@drink_ing = DrinkIngredient.find(params[:id])
     end
 
+    
     def update
         #@drink_ing = DrinkIngredient.find(params[:id])
         @drink_ing.update(drink_ing_params)

@@ -46,7 +46,24 @@ class IngredientsController < ApplicationController
     redirect_to ingredients_path
   end
 
+  def search
+      @ingredients = Ingredient.get_ingredients_array
+end 
 
+def handle_search
+  Drink.list_all_cocktail_hashes.each do |cocktail_hash|
+  drinks_ingredients = Drink.get_ingredients(cocktail_hash) 
+    drinks_ingredients.each do |drink_ingredients|
+        if params["ingredients"].include?(drink_ingredients)
+          session[:available_cocktails]) = cocktail_hash
+          redirect_to  '/results'
+           else 
+          flash[:messages] = "Cocktail not found"
+          redirect_to '/search'
+      end 
+    end
+  end
+end
   private
 
   def find_ingredient
