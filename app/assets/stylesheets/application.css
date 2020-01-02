@@ -13,3 +13,42 @@
  *= require_tree .
  *= require_self
  */
+
+body {
+    background-image: url(https://images.squarespace-cdn.com/content/v1/5acfac842714e5901ad94793/1553194178859-VJ4IIIQTX3PHKPY3KEVV/ke17ZwdGBToddI8pDm48kCWp_5aBek_P_XAub5uYr40UqsxRUqqbr1mOJYKfIPR7LoDQ9mXPOjoJoqy81S2I8N_N4V1vUb5AoIIIbLZhVYxCRW4BPu10St3TBAUQYVKcmdBZtNf5mqBqpSecoqRSTgWvVx_S1vHgWcdfm_5ESA23NJcchITsVgPM6a3YdPqa/08-polo-bar-5.w710.h473.2x.jpg?format=1500w);
+    background-size: cover;
+    font-family: 'Gelasio', serif;
+}
+
+.navbar {
+    opacity: 0.7;
+}
+
+.navbar-nav {
+    font-family: 'Gelasio', serif;
+    width: 80%;
+    display: flex;
+  justify-content: space-around;
+  height: 100%;
+}
+
+a {
+    color: white!important;
+}
+
+li.nav-item {
+    font-family: 'Gelasio', serif;
+    font-size: x-large;
+}
+
+.nav-link {
+    color: white;
+    font-family: 'Gelasio', serif;
+}
+
+.user-name li h3{
+    color: white;
+    text-align: center;
+    font-family: 'Gelasio', serif;
+    font-size: 40px;
+}
