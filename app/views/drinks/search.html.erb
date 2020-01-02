@@ -1,6 +1,17 @@
 <h1>Search Drink</h1>
-<%= form_with(url: '/drinks/search', method: 'post') do  %>
+<%= form_tag('/drinks/search', method: 'get') do  %>
 <%= label_tag(:name, "Search cocktail") %>
 <%= text_field_tag(:name) %> 
-<%= submit_tag "search cocktail"%>
+<%= submit_tag "search cocktail" %>
 <% end %>
+
+<ul>
+<% if @cocktail_hash && @cocktail_hash["drinks"] %>
+    <% ingredient_array = Drink.get_ingredients(@cocktail_hash) %>
+    <% ingredient_array.each do |ingredient| %>
+   <li> <%= ingredient %></li>
+     <% end %>
+    <% else %>
+    <%= flash[:messages] %>
+    <%end %>
+</ul>

@@ -19,8 +19,7 @@ class Drink < ApplicationRecord
     puts cocktail_hash["drinks"][0]["strInstructions"]
   end
   
-  def self.get_ingredients(cocktail)
-    cocktail_hash = get_cocktail(cocktail)
+  def self.get_ingredients(cocktail_hash)
     ingredients = []
     n = 1
     while n < 15
@@ -32,8 +31,7 @@ class Drink < ApplicationRecord
     return ingredients
   end 
 
-    def self.get_measurements(cocktail)
-      cocktail_hash = get_cocktail(cocktail)
+    def self.get_measurements(cocktail_hash)
     n = 1
       while n < 15
        if cocktail_hash["drinks"][0]["strMeasure#{n}"]
