@@ -6,8 +6,8 @@ Rails.application.routes.draw do
   get 'drinks/search', to: 'drinks#search' 
   # get 'drinks/search', to: 'drinks#handle_search' 
 
-  # resources :drink_ingredients
-  # resources :ingredients
+  resources :drink_ingredients
+  resources :ingredients
   resources :drinks
   resources :shelves
   # resources :users

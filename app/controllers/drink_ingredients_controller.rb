@@ -2,34 +2,35 @@ class DrinkIngredientsController < ApplicationController
     before_action :find_drink_ing, only: [:show, :edit, :update, :destroy]
 
     def index
-        @dis = DrinkIngredient.all 
+        @drink_ings = DrinkIngredient.all 
     end
 
     def show
-        #@di = DrinkIngredient.find(params[:id])
+        #@drink_ing = DrinkIngredient.find(params[:id])
     end
 
     def new
-        @di = DrinkIngredient.new
+        @drink_ing = DrinkIngredient.new
     end
 
     def create
-        @di = DrinkIngredient.create(drink_ing_params)
+        @drink_ing = DrinkIngredient.create(drink_ing_params)
     end
 
     def edit
-        #@di = DrinkIngredient.find(params[:id])
+        #@drink_ing = DrinkIngredient.find(params[:id])
     end
 
     def update
-        #@di = DrinkIngredient.find(params[:id])
-        @di.update(drink_ing_params)
-        redirect_to edit
+        #@drink_ing = DrinkIngredient.find(params[:id])
+        @drink_ing.update(drink_ing_params)
+
+        redirect_to edit_drink_ingredient_path
     end
 
     def destroy
         #@di = DrinkIngredient.find(params[:id])
-        @di.delete
+        @drink_ing.delete
         redirect_to drink_ingredients_path
     end
 
@@ -37,7 +38,7 @@ class DrinkIngredientsController < ApplicationController
     private
 
     def find_drink_ing
-        @di = DrinkIngredient.find(params[:id])
+        @drink_ing = DrinkIngredient.find(params[:id])
     end
 
     def drink_ing_params
