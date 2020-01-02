@@ -1,7 +1,8 @@
 class UsersController < ApplicationController
 
-    before_action :find_user, only: [:show, :edit, :update, :destroy]
-    skip_before_action :authorized, only: [:new, :create]
+    # before_action :find_user, only: [:show, :edit, :update, :destroy]
+    # skip_before_action :authorized, only: [:new, :create]
+
   def index
     @users = User.all
   end
@@ -14,16 +15,16 @@ class UsersController < ApplicationController
     @user = User.new
   end
 
-  def create
-        user = User.create(user_params)
-    if user.valid?
-       session[:user_id] = user.id
-    redirect_to user_path(user)
-    else
-      flash[:messages] = user.errors.full_messages
-      redirect_to new_user_path
-    end    
-  end
+  # def create
+  #       user = User.create(user_params)
+  #   if user.valid?
+  #      session[:user_id] = user.id
+  #   redirect_to user_path(user)
+  #   else
+  #     flash[:messages] = user.errors.full_messages
+  #     redirect_to new_user_path
+  #   end    
+  # end
 
   def edit
     #@user = User.find(params[:id])

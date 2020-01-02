@@ -4,14 +4,14 @@ Rails.application.routes.draw do
   get 'sessions/login'
   get 'sessions/welcome'
   get 'drinks/search', to: 'drinks#search' 
-  # get 'drinks/search', to: 'drinks#handle_search' 
+  get 'drinks/search', to: 'drinks#handle_search' 
 
   resources :drink_ingredients
   resources :ingredients
   resources :drinks
   resources :shelves
+  resources :users
   # resources :users
-  resources :users, only: [:new, :create]
   get 'login', to: 'sessions#new'
   post 'login', to: 'sessions#create'
   get 'welcome', to: 'sessions#welcome'
